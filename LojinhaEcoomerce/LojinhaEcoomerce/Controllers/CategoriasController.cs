@@ -46,10 +46,11 @@ namespace LojinhaEcoomerce.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaId,NomeCategoria,DescricaoCategoria")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "CategoriaId,NomeCategoria,DescricaoCategoria")] Categoria categoria, HttpPostedFile fupImagem)
         {
             if (ModelState.IsValid)
             {
+                
                 CategoriaDAO.CadastrarCategoria(categoria);
                 return RedirectToAction("Index");
             }

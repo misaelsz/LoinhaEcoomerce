@@ -49,26 +49,28 @@ namespace LojinhaEcoomerce.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProdutoId,NomeProduto,DescricaoProduto,ValorProduto")] Produto produto, int Categorias ,HttpPostedFileBase fupImagem)
+        public ActionResult Create([Bind(Include = "ProdutoId,ProdutoNome,ProdutoDescricao,ValorProduto")] Produto produto, int Categorias, HttpPostedFileBase img)
         {
             ViewBag.Categorias = new SelectList(CategoriaDAO.ListarCategorias(), "CategoriaId", "NomeCategoria");
-            if (ModelState.IsValid) { 
-            //{
-            //    if (fupImagem != null)
-            //    {
-            //        //Gravar imagem
-            //        string caminhoUpload = Server.MapPath("~/ImagensDaLojinha/");
-            //        string caminhoArquivo = Path.Combine(caminhoUpload, Path.GetFileName(fupImagem.FileName));
-            //        fupImagem.SaveAs(caminhoArquivo);
-            //        produto.ImagemProduto = fupImagem.FileName;
+            if (ModelState.IsValid)
+            {
+                if (img != null)
+                {
+                    //Gravar imagem
+                    string nomeImagem = img.FileName;
+                    string caminho = System.IO.Path.Combine(
+                        Server.MapPath("~/Images/"), nomeImagem);
+
+                    img.SaveAs(caminho);
+                    produto.ImagemProduto = nomeImagem;
 
 
                     produto.Categoria =
                         CategoriaDAO.BuscarCategoriaPorId(Categorias);
                     ProdutoDAO.CadastrarProduto(produto);
                     return RedirectToAction("Index");
-                //}
-                //ModelState.AddModelError("", "Favor escolher uma imagem!");
+                }
+                ModelState.AddModelError("", "Favor escolher uma imagem!");
             }
             return View(produto);
         }
@@ -98,10 +100,10 @@ namespace LojinhaEcoomerce.Controllers
             if (ModelState.IsValid)
             {
 
-                    ProdutoDAO.EditarProduto(produto);
-                    return RedirectToAction("Index");
-                
-                
+                ProdutoDAO.EditarProduto(produto);
+                return RedirectToAction("Index");
+
+
             }
             return View(produto);
         }

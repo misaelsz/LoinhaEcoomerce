@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("RecebeArquivo", "Up" , FormMethod.Post, new { enctype="multipart/form-data" })) {
+	<input type="file" name="file" />
+	<input type="submit" value="cadastrar" />
+}

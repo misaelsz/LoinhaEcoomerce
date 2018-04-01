@@ -10,7 +10,7 @@ namespace LojinhaEcoomerce.Controllers
     {
         // GET: Home
         public ActionResult Index()
-        {
+        { 
             return View();
         }
     }
