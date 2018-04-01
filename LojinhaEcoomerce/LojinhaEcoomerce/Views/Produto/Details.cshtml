@@ -1,0 +1,43 @@
+﻿@model LojinhaEcoomerce.Models.Produto
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorProduto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ProdutoId }) |
+    @Html.ActionLink("Voltar a lista", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LojinhaEcoomerce.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorProduto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorProduto)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ProdutoId })
+        </td>
+    </tr>
+}
+
+</table>
