@@ -150,7 +150,9 @@
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\Produto\Delete.cshtml" />
@@ -162,6 +164,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UpController.cs" />
     <Compile Include="DAL\CategoriaDAO.cs" />
@@ -170,18 +173,6 @@
     <Compile Include="DAL\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311332125_Inicial.cs" />
-    <Compile Include="Migrations\201803311332125_Inicial.Designer.cs">
-      <DependentUpon>201803311332125_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311835581_Mudancas na tabela de produtos.cs" />
-    <Compile Include="Migrations\201803311835581_Mudancas na tabela de produtos.Designer.cs">
-      <DependentUpon>201803311835581_Mudancas na tabela de produtos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311845381_Adicao de imagem na tabela produto.cs" />
-    <Compile Include="Migrations\201803311845381_Adicao de imagem na tabela produto.Designer.cs">
-      <DependentUpon>201803311845381_Adicao de imagem na tabela produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -208,6 +199,11 @@
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
     <Content Include="Views\Up\Index.cshtml" />
+    <Content Include="Views\Pessoas\Create.cshtml" />
+    <Content Include="Views\Pessoas\Delete.cshtml" />
+    <Content Include="Views\Pessoas\Details.cshtml" />
+    <Content Include="Views\Pessoas\Edit.cshtml" />
+    <Content Include="Views\Pessoas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -223,15 +219,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803311332125_Inicial.resx">
-      <DependentUpon>201803311332125_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311835581_Mudancas na tabela de produtos.resx">
-      <DependentUpon>201803311835581_Mudancas na tabela de produtos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311845381_Adicao de imagem na tabela produto.resx">
-      <DependentUpon>201803311845381_Adicao de imagem na tabela produto.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\ApiDemoNegocio\ApiDemoNegocio.csproj">
+      <Project>{d5e433f7-e834-48e8-a056-cad0424b826e}</Project>
+      <Name>ApiDemoNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
