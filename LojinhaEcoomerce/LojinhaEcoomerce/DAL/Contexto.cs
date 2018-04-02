@@ -10,7 +10,7 @@ namespace LojinhaEcoomerce.DAL
     public class Contexto : DbContext
     {
         public Contexto()
-            : base("name=conexao")
+            : base("name=ApiDemoEntity")
         {
         }
 

@@ -174,6 +174,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804022307206_Adicao de tabelas do meu projetinho no banco lojinha.cs" />
+    <Compile Include="Migrations\201804022307206_Adicao de tabelas do meu projetinho no banco lojinha.Designer.cs">
+      <DependentUpon>201804022307206_Adicao de tabelas do meu projetinho no banco lojinha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ItemVenda.cs" />
@@ -223,6 +227,11 @@
       <Project>{d5e433f7-e834-48e8-a056-cad0424b826e}</Project>
       <Name>ApiDemoNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804022307206_Adicao de tabelas do meu projetinho no banco lojinha.resx">
+      <DependentUpon>201804022307206_Adicao de tabelas do meu projetinho no banco lojinha.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

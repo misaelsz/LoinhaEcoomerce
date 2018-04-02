@@ -49,7 +49,7 @@ namespace LojinhaEcoomerce.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProdutoId,ProdutoNome,ProdutoDescricao,ValorProduto")] Produto produto, int Categorias, HttpPostedFileBase img)
+        public ActionResult Create([Bind(Include = "ProdutoId,NomeProduto ,DescricaoProduto,ValorProduto")] Produto produto, int Categorias, HttpPostedFileBase img)
         {
             ViewBag.Categorias = new SelectList(CategoriaDAO.ListarCategorias(), "CategoriaId", "NomeCategoria");
             if (ModelState.IsValid)
